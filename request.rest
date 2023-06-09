@@ -1,0 +1,14 @@
+POST http://localhost:8080/student/create
+Content-Type: application/json
+
+{
+    "name": "*",
+    "company": "*"
+}
+
+###
+
+GET http://localhost:8080/student/list
+
+###
+GET http://localhost:8080/student/648328fceeef57bfae6d59e2
