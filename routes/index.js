@@ -31,6 +31,31 @@ router.get('/:id', getStudentDetails, async (req, res) => {
     res.status(200).json(res.student)
 })
 
+router.patch('/:id', getStudentDetails, async (req, res) => {
+    if(req.body.name != undefined){
+        res.student.name = req.body.name;
+    }
+    if(req.body.company != undefined){
+        res.student.name = req.body.company;
+    }
+    try {
+        const updated = await res.student.save();
+        res.status(200).json(updated);
+    } catch (error) {
+        return res.status(500).json({message: error.message})
+    }
+})
+
+router.delete('/:id', getStudentDetails, async (req, res) => {
+    let name = res.student.name;
+    try {
+        await res.student.deleteOne();
+        res.json({message: `${name} student has been deleted`})
+    } catch (error) {
+        return res.status(500).json({message: error.message})
+    }
+})
+
 async function getStudentDetails(req, res, next){
     let student;
     try {

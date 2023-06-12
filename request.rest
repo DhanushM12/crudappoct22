@@ -11,4 +11,15 @@ Content-Type: application/json
 GET http://localhost:8080/student/list
 
 ###
-GET http://localhost:8080/student/648328fceeef57bfae6d59e2
+GET http://localhost:8080/student/64832b0131812a03dfaa1da5
+
+###
+PATCH http://localhost:8080/student/648328fceeef57bfae6d59e2
+Content-Type: application/json
+
+{
+    "name": "PQR"
+}
+
+###
+DELETE http://localhost:8080/student/64832b0131812a03dfaa1da5
